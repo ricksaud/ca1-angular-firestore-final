@@ -1,0 +1,84 @@
+/* General page styling */
+.property-page {
+  font-family: "Poppins", sans-serif; // Modern font
+  background-color: #f5f6fa; // Soft background color
+  color: #2c3e50;
+
+  h1.title {
+    font-size: 2rem;
+    margin: 1rem 0 0.5rem;
+    color: #34495e;
+  }
+
+  h2.location {
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    color: #7f8c8d;
+  }
+
+  .key-facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-bottom: 1rem;
+
+    p {
+      background: #ecf0f1;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-weight: 500;
+    }
+
+    .price {
+      color: #e74c3c;
+      font-size: 1.5rem;
+    }
+  }
+
+  section.description,
+  section.features {
+    margin-bottom: 1.5rem;
+
+    h3 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: #2c3e50;
+    }
+
+    p,
+    li {
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #34495e;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+    }
+  }
+
+  /* IMAGE SLIDER */
+  .property-slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+
+    .slide-img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain; /* Ensures the whole image is visible */
+      border-radius: 10px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+  }
+}
+
+/* Customize ion-button */
+ion-button {
+  font-weight: bold;
+  font-size: 1.1rem;
+  --background: #3498db;
+  --color: #fff;
+  border-radius: 8px;
+}

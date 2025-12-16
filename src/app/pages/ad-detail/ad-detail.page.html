@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>{{ property?.title }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding property-page">
+  <div *ngIf="property">
+    <!-- 1. IMAGE SLIDER -->
+    <swiper-container
+      *ngIf="property.images.length > 0"
+      pagination="true"
+      navigation="true"
+      class="property-slider"
+      style="width: 100%; height: 400px"
+    >
+      <swiper-slide *ngFor="let img of property.images">
+        <img
+          [src]="img"
+          class="slide-img"
+          alt="{{ property.title }}"
+          loading="lazy"
+        />
+      </swiper-slide>
+    </swiper-container>
+
+    <!-- 2. Title & Location -->
+    <h1 class="title">{{ property.title }}</h1>
+    <h2 class="location">{{ property.location }}</h2>
+
+    <!-- 3. Price & Details -->
+    <div class="key-facts">
+      <p class="price">€{{ property.price | number }}</p>
+      <p>Bedrooms: {{ property.bedrooms }}</p>
+      <p>Bathrooms: {{ property.bathrooms }}</p>
+      <p *ngIf="property.area">Area: {{ property.area }} m²</p>
+    </div>
+
+    <!-- 4. Description -->
+    <section class="description">
+      <h3>Description</h3>
+      <p>{{ property.description }}</p>
+    </section>
+
+    <!-- 5. Features -->
+    <section class="features" *ngIf="property.features?.length > 0">
+      <h3>Features</h3>
+      <ul>
+        <li *ngFor="let f of property.features">{{ f }}</li>
+      </ul>
+    </section>
+
+    <!-- 6. Book Viewing -->
+    <ion-button
+      expand="full"
+      color="secondary"
+      [routerLink]="['/book-viewing', property.id]"
+    >
+      Book a Viewing
+    </ion-button>
+  </div>
+</ion-content>

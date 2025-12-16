@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Register</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding reg-container">
+  <div class="form-box">
+    <h2>Create Account</h2>
+
+    <form [formGroup]="registerForm" (ngSubmit)="register()">
+      <ion-item>
+        <ion-label position="floating">Full Name</ion-label>
+        <ion-input formControlName="name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Phone Number</ion-label>
+        <ion-input formControlName="phone" type="tel"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Email</ion-label>
+        <ion-input formControlName="email" type="email"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input formControlName="password" type="password"></ion-input>
+      </ion-item>
+
+      <ion-button
+        expand="block"
+        type="submit"
+        color="secondary"
+        class="reg-btn"
+      >
+        Register
+      </ion-button>
+    </form>
+
+    <div class="link">
+      <a routerLink="/login">Already have an account? Login</a>
+    </div>
+  </div>
+</ion-content>

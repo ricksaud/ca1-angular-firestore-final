@@ -1,0 +1,68 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Filters</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="close()">Close</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h2>Price Range</h2>
+  <ion-range dualKnobs="true" [(ngModel)]="filters.price">
+    <ion-label slot="start">€{{ filters.price.lower }}</ion-label>
+    <ion-label slot="end">€{{ filters.price.upper }}</ion-label>
+  </ion-range>
+
+  <h2>Bedrooms</h2>
+  <ion-segment [(ngModel)]="filters.bedrooms">
+    <ion-segment-button value="1">1+</ion-segment-button>
+    <ion-segment-button value="2">2+</ion-segment-button>
+    <ion-segment-button value="3">3+</ion-segment-button>
+    <ion-segment-button value="4">4+</ion-segment-button>
+  </ion-segment>
+
+  <h2>Bathrooms</h2>
+  <ion-segment [(ngModel)]="filters.bathrooms">
+    <ion-segment-button value="1">1+</ion-segment-button>
+    <ion-segment-button value="2">2+</ion-segment-button>
+    <ion-segment-button value="3">3+</ion-segment-button>
+  </ion-segment>
+
+  <h2>Property Type</h2>
+  <ion-list>
+    <ion-radio-group [(ngModel)]="filters.type">
+      <ion-item>
+        <ion-label>Any</ion-label>
+        <ion-radio value="any"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>House</ion-label>
+        <ion-radio value="house"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Apartment</ion-label>
+        <ion-radio value="apartment"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Cottage</ion-label>
+        <ion-radio value="cottage"></ion-radio>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Luxury</ion-label>
+        <ion-radio value="luxury"></ion-radio>
+      </ion-item>
+    </ion-radio-group>
+  </ion-list>
+
+  <ion-button expand="block" color="primary" (click)="apply()"
+    >Apply Filters</ion-button
+  >
+  <ion-button expand="block" color="medium" fill="outline" (click)="reset()"
+    >Reset</ion-button
+  >
+</ion-content>

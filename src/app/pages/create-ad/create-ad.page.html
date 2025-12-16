@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Add Property</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="adForm" (ngSubmit)="submitAd()">
+    <ion-item>
+      <ion-label position="stacked">Title</ion-label>
+      <ion-input formControlName="title"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Location</ion-label>
+      <ion-input formControlName="location"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Price (€)</ion-label>
+      <ion-input type="number" formControlName="price"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Bedrooms</ion-label>
+      <ion-input type="number" formControlName="bedrooms"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Bathrooms</ion-label>
+      <ion-input type="number" formControlName="bathrooms"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Area (m²)</ion-label>
+      <ion-input type="number" formControlName="area"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Description</ion-label>
+      <ion-textarea formControlName="description"></ion-textarea>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Features (comma-separated)</ion-label>
+      <ion-input formControlName="features"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="stacked">Images URLs (comma-separated)</ion-label>
+      <ion-input formControlName="images"></ion-input>
+    </ion-item>
+
+    <ion-button expand="full" type="submit" [disabled]="submitted">
+      Add Property
+    </ion-button>
+  </form>
+</ion-content>

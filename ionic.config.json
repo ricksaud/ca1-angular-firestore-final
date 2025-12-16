@@ -1,0 +1,7 @@
+{
+  "name": "realEstateApp",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular-standalone"
+}

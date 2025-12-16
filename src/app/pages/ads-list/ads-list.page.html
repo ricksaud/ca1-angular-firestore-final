@@ -1,0 +1,46 @@
+<ion-content class="ion-padding ads-page">
+  <!-- SEARCH DRAWER -->
+  <div class="search-drawer" [class.open]="searchOpen">
+    <div class="search-header">
+      <ion-input
+        placeholder="Search location or keywords..."
+        [(ngModel)]="searchQuery"
+        (ionInput)="applySearchFilter()"
+      ></ion-input>
+
+      <ion-button fill="clear" (click)="toggleSearch()">
+        <ion-icon name="close-outline"></ion-icon>
+      </ion-button>
+    </div>
+
+    <!-- Suggested locations -->
+    <div class="suggestions">
+      <ion-chip *ngFor="let city of cities" (click)="applySuggestion(city)">
+        {{ city }}
+      </ion-chip>
+    </div>
+  </div>
+
+  <ion-grid>
+    <ion-row>
+      <ion-col
+        size="12"
+        size-sm="6"
+        size-md="4"
+        *ngFor="let property of filteredProperties"
+      >
+        <ion-card [routerLink]="['/ad', property.id]" class="property-card">
+          <img [src]="property.image" alt="{{ property.title }}" />
+          <ion-card-header>
+            <ion-card-title>{{ property.title }}</ion-card-title>
+            <ion-card-subtitle>{{ property.location }}</ion-card-subtitle>
+          </ion-card-header>
+          <ion-card-content>
+            <p>{{ property.description }}</p>
+            <p class="price">€{{ property.price | number }}</p>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>

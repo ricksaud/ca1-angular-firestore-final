@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-title>Book Viewing</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="bookingForm" (ngSubmit)="submitBooking()">
+    <ion-item>
+      <ion-label position="floating">Name *</ion-label>
+      <ion-input type="text" formControlName="name"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Email *</ion-label>
+      <ion-input type="email" formControlName="email"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Phone</ion-label>
+      <ion-input type="tel" formControlName="phone"></ion-input>
+    </ion-item>
+
+    <!-- Single Date & Time picker -->
+    <ion-item>
+      <ion-label>Date & Time *</ion-label>
+      <ion-datetime
+        formControlName="dateTime"
+        display-format="DD/MM/YYYY HH:mm"
+        picker-format="DD/MM/YYYY HH:mm"
+      ></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-label position="floating">Notes</ion-label>
+      <ion-textarea formControlName="notes"></ion-textarea>
+    </ion-item>
+
+    <ion-button expand="full" type="submit" [disabled]="bookingForm.invalid">
+      Book Viewing
+    </ion-button>
+  </form>
+
+  <div *ngIf="bookingFormSubmitted" class="success-message">
+    <p>Booking submitted successfully!</p>
+  </div>
+</ion-content>
